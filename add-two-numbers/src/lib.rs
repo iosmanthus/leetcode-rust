@@ -43,23 +43,41 @@ impl Solution {
         c
     }
 }
-fn main() {
-    let l1 = Some(Box::new(ListNode {
-        val: 9,
-        next: Some(Box::new(ListNode {
-            val: 8,
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn it_works() {
+        let l1 = Some(Box::new(ListNode {
+            val: 9,
             next: Some(Box::new(ListNode {
-                val: 3,
+                val: 8,
+                next: Some(Box::new(ListNode {
+                    val: 3,
+                    next: Some(Box::new(ListNode::new(3))),
+                })),
+            })),
+        }));
+        let l2 = Some(Box::new(ListNode {
+            val: 1,
+            next: Some(Box::new(ListNode {
+                val: 2,
                 next: Some(Box::new(ListNode::new(3))),
             })),
-        })),
-    }));
-    let l2 = Some(Box::new(ListNode {
-        val: 1,
-        next: Some(Box::new(ListNode {
-            val: 2,
-            next: Some(Box::new(ListNode::new(3))),
-        })),
-    }));
-    println!("{:#?}", Solution::add_two_numbers(l1, l2));
+        }));
+        assert_eq!(
+            Some(Box::new(ListNode {
+                val: 0,
+                next: Some(Box::new(ListNode {
+                    val: 1,
+                    next: Some(Box::new(ListNode {
+                        val: 7,
+                        next: Some(Box::new(ListNode::new(3))),
+                    })),
+                })),
+            })),
+            Solution::add_two_numbers(l1, l2)
+        );
+    }
 }
