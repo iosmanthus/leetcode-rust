@@ -1,7 +1,7 @@
 pub struct Solution {}
 impl Solution {
     pub fn convert(s: String, num_rows: i32) -> String {
-        let modulus = 2 * num_rows - 2;
+        let modulus = if num_rows == 1 { 1 } else { 2 * num_rows - 2 };
         let mut dict = vec![];
         dict.resize(num_rows as usize, vec![]);
 
