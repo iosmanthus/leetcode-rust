@@ -18,9 +18,9 @@ impl Solution {
         l2: Option<Box<ListNode>>,
     ) -> Option<Box<ListNode>> {
         let (mut l1, mut l2) = (l1, l2);
-        let mut c = Some(Box::new(ListNode::new(0)));
-        let mut tail = &mut c;
-        while l1.is_some() || l2.is_some() {
+        let mut l3 = Some(Box::new(ListNode::new(0)));
+        let mut tail = &mut l3;
+        loop {
             let a = l1.take().unwrap_or(Box::new(ListNode::new(0)));
             let b = l2.take().unwrap_or(Box::new(ListNode::new(0)));
             tail = match tail.as_mut() {
@@ -28,10 +28,10 @@ impl Solution {
                     let sum = a.val + b.val + inner_box.val;
                     let carry = sum / 10;
                     inner_box.val = sum % 10;
-                    inner_box.next = if a.next.is_none() && b.next.is_none() && carry == 0 {
-                        None
+                    if a.next.is_none() && b.next.is_none() && carry == 0 {
+                        break l3;
                     } else {
-                        Some(Box::new(ListNode::new(carry)))
+                        inner_box.next = Some(Box::new(ListNode::new(carry)))
                     };
                     &mut inner_box.next
                 }
@@ -40,7 +40,6 @@ impl Solution {
             l1 = a.next;
             l2 = b.next;
         }
-        c
     }
 }
 
