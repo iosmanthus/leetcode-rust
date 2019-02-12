@@ -5,16 +5,16 @@ impl Solution {
         for i in (0..text.len() + 1).rev() {
             for j in (0..pattern.len() + 1).rev() {
                 let (text, pattern) = (&text[i..], &pattern[j..]);
-                if pattern.is_empty() {
-                    matched[i][j] = text.is_empty();
+                matched[i][j] = if pattern.is_empty() {
+                    text.is_empty()
                 } else {
                     let first_match = !text.is_empty()
                         && (text.as_bytes()[0] == pattern.as_bytes()[0]
                             || pattern.as_bytes()[0] == b'.');
                     if pattern.len() >= 2 && pattern.as_bytes()[1] == b'*' {
-                        matched[i][j] = (first_match && matched[i + 1][j]) || matched[i][j + 2]
+                        (first_match && matched[i + 1][j]) || matched[i][j + 2]
                     } else {
-                        matched[i][j] = first_match && matched[i + 1][j + 1]
+                        first_match && matched[i + 1][j + 1]
                     }
                 }
             }
