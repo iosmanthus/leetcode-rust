@@ -1,0 +1,12 @@
+[package]
+name = "merge-k-sorted-lists"
+version = "0.1.0"
+authors = ["iosmanthus <myosmanthustree@gmail.com>"]
+edition = "2018"
+
+[features]
+default = []
+clone = []
+noclone = []
+
+[dependencies]
