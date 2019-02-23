@@ -1,0 +1,4 @@
+[[package]]
+name = "next-permutation"
+version = "0.1.0"
+
