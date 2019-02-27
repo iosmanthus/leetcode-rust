@@ -21,6 +21,7 @@ impl Solution {
         }
         let pivot = Self::find_pivot(&nums);
         let (mut l, mut r) = (0, nums.len());
+
         while l < r {
             let mid = (l + r) / 2;
             let mapping = (mid + pivot) % nums.len();
