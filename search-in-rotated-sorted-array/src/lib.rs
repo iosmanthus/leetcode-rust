@@ -20,7 +20,6 @@ impl Solution {
             return -1;
         }
         let pivot = Self::find_pivot(&nums);
-        println!("{}", pivot);
         let (mut l, mut r) = (0, nums.len());
         while l < r {
             let mid = (l + r) / 2;
@@ -47,6 +46,7 @@ mod tests {
     use super::*;
     #[test]
     fn it_works() {
-        dbg!(Solution::search(vec![8, 9, 2, 3, 4], 9));
+        assert_eq!(1, Solution::search(vec![8, 9, 2, 3, 4], 9));
+        assert_eq!(3, Solution::search(vec![5, 6, 1, 2, 3, 4], 2));
     }
 }
