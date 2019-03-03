@@ -1,0 +1,4 @@
+[[package]]
+name = "maximum-subarray"
+version = "0.1.0"
+
