@@ -1,0 +1,7 @@
+[package]
+name = "jump-game"
+version = "0.1.0"
+authors = ["iosmanthus <myosmanthustree@gmail.com>"]
+edition = "2018"
+
+[dependencies]
