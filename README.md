@@ -1,11 +1,12 @@
-眼看就要失业了, 为了混口饭吃, 我念了一句诗: "苟利国家生死以, 岂因祸福避趋之", 然后开始刷[LeetCode](https://leetcode.com), 
+眼看就要失业了, 为了混口饭吃, 我念了一句诗: "苟利国家生死以, 岂因祸福避趋之", 然后开始刷[LeetCode](https://leetcode.com),
 
-问题集: 
+问题集:
 
 * 仓库中的大部分题目来自https://leetcode.com/problemset/top-100-liked-questions
 * 有零星几道题是来自[数组专题训练](https://leetcode.com/tag/array/)的题目
+* 有些题目还没有`Rust Version`, 有点气人... 还是偷偷用起了`C++`. I am angry!
 
-每道题的题名作为`crate name`, 利用`Cargo`创建一个`library crate`, 所有的题目都添加了自动测试, 方便以后添加新的解法.
+每道题的题名作为`crate name`, 利用`Cargo`创建一个`library crate`, 所有的题目都添加了单元测试, 方便以后添加新的解法.
 
 如果一道题目有多种解法, 我会在`Cargo.toml`中添加一个`features`列表, 默认的`feature`是时间复杂度最小的解法. 举个栗子:
 
