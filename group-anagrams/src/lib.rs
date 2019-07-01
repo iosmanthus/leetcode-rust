@@ -27,7 +27,7 @@ mod tests {
         dbg!(Solution::group_anagrams(
             ["eat", "tea", "tan", "ate", "nat", "bat"]
                 .into_iter()
-                .map(|slice| slice.to_string())
+                .map(String::from)
                 .collect()
         ));
     }
