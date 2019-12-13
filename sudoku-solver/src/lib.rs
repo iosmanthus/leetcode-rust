@@ -47,10 +47,10 @@ impl Solution {
         for i in 0..9 {
             // Remove numbers exist in the same row.
             bits &= !(((board[row][i] != '.') as u32)
-                << ((board[row][i] as u8).saturating_sub(b'0' + 1)));
+                << (board[row][i] as u8).saturating_sub(b'0' + 1));
             // Remove numbers exist in the same column.
             bits &= !(((board[i][col] != '.') as u32)
-                << ((board[i][col] as u8).saturating_sub(b'0' + 1)));
+                << (board[i][col] as u8).saturating_sub(b'0' + 1));
 
             // Remove numbers exist in the same 3x3 box.
             let x = row / 3 * 3 + i / 3;
