@@ -1,3 +1,6 @@
+#![feature(test)]
+extern crate test;
+
 pub struct Solution;
 
 impl Solution {
@@ -95,5 +98,27 @@ mod tests {
             Solution::solve_sudoku(&mut board);
             assert_eq!(board, expected);
         }
+    }
+}
+
+#[cfg(test)]
+mod benches {
+    use super::*;
+    #[bench]
+    fn bench_solve_sudoku(b: &mut test::Bencher) {
+        b.iter(|| { let mut board = 
+            vec![
+                vec!['5', '3', '.', '.', '7', '.', '.', '.', '.'],
+                vec!['6', '.', '.', '1', '9', '5', '.', '.', '.'],
+                vec!['.', '9', '8', '.', '.', '.', '.', '6', '.'],
+                vec!['8', '.', '.', '.', '6', '.', '.', '.', '3'],
+                vec!['4', '.', '.', '8', '.', '3', '.', '.', '1'],
+                vec!['7', '.', '.', '.', '2', '.', '.', '.', '6'],
+                vec!['.', '6', '.', '.', '.', '.', '2', '8', '.'],
+                vec!['.', '.', '.', '4', '1', '9', '.', '.', '5'],
+                vec!['.', '.', '.', '.', '8', '.', '.', '7', '9'],
+            ];
+            test::black_box(Solution::solve_sudoku(&mut board))
+        });
     }
 }
