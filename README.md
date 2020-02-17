@@ -20,7 +20,7 @@
 
 ```toml
 [features]
-deafalut = ["best"]
+default = ["best"]
 
 dp=[]
 stack=[]
