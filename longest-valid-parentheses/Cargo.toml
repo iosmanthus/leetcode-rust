@@ -7,7 +7,7 @@ edition = "2018"
 [dependencies]
 
 [features]
-deafalut = ["best"]
+default = ["best"]
 
 dp=[]
 stack=[]
